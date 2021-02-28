@@ -15,6 +15,7 @@ const {
   REDIRECT_URL,
   EMAIL_USER,
   EMAIL_RECEIVER,
+  PORT,
 } = process.env;
 
 const app = express();
@@ -60,4 +61,6 @@ app.post("/email", async (req, res) => {
   }
 });
 
-app.listen(3000, () => console.log("Listening on port 3000"));
+app.listen(PORT || 3000, () =>
+  console.log(`Listening on port ${PORT || 3000}`)
+);
