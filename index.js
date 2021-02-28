@@ -1,5 +1,6 @@
 const express = require("express");
 const nodemailer = require("nodemailer");
+const cors = require("cors");
 const { google } = require("googleapis");
 
 if (process.env.NODE_ENV === "development") {
@@ -19,6 +20,7 @@ const {
 } = process.env;
 
 const app = express();
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
